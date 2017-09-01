@@ -21,11 +21,11 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-     /^[^aeiou0-9\W\d]/.match(s.downcase) == nil ? false : true
+     /^[^aeiou\W\d]/.match(s.downcase) ? true : false
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+    return /^[10]+00$/.match(s) || s == "0" ? true : false
 end
 
 # Part 3
