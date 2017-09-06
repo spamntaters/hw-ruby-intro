@@ -9,19 +9,20 @@ def sum arr
 end
 
 def max_2_sum arr
-  arr.sort!
-  if arr.empty?
-    return 0
-  elsif arr.length <= 2
-    return sum(arr)
-  else
-    newArr = [arr[-1], arr[-2]]
-    return sum(newArr)
-  end
+  return sum(arr.max(2))
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  hash = Hash.new(0)
+  arr.each do |v|
+    if hash.key? v
+      return true
+    else
+      hash[n-v] = v
+    end
+end
+return false
+
 end
 
 # Part 2
@@ -35,7 +36,7 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-    return /^[10]+00$/.match(s) || s == "0" ? true : false
+     /^[10]+00$/.match(s) || s == "0" ? true : false
 end
 
 # Part 3
